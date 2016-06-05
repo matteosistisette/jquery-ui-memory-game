@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<!-- DEPENDENCIES (jQuery & jQuery-UI) --> 
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+
+	<!-- MEMORY PLUGIN (script & style) -->
+	<link href="css/jquery.memory-game.css" rel="stylesheet">
+	<script src="js/jquery.memory-game.js"></script>
+
+	<!-- STYLESHEET FOR THIS PARTICULAR EXAMPLE -->
+	<link  rel="stylesheet" href="example-css/example.css" type="text/css">
+
+	<!-- EXAMPLE JAVASCRIPT CODE USING THE PLUGIN --> 
+	<script>
+	$(function(){
+		$("#memory-game").memoryGame();
+	});
+	</script>
+	<title>Jquery Memory game plugin example</title>
+	<style>
+	.code {
+		overflow: auto; padding-left: 20px; background-color: black; color: white;
+	}
+	</style>
+</head>
+<body>
+	<h1>Memory Game jQuery plugin by Matteo Sisti Sette</h1>
+	<h2>A jQuery plugin to create "Memory" card games</h2>
+	<p><a href="https://github.com/matteosistisette/jquery-ui-memory-game">Download from Github</a>. The code for the example below is at the bottom of this page. See more examples <a href="https://github.com/matteosistisette/jquery-ui-memory-game/blob/master/README.md">here</a></p>
+	<p>Once a pair of matching cards is disclosed, those cards become regular links. You can click on them again to open the link.</p>
+
+	<!-- MARKUP --> 
+	<div id="memory-game">
+		<a href="http://en.wikipedia.org/wiki/Iguana"><img width="100" height="100" src="example-images/iguana.jpg"></a>
+		<a href="http://en.wikipedia.org/wiki/Panda"><img width="100" height="100" src="example-images/panda.jpg"></a>
+		<a href="http://en.wikipedia.org/wiki/Lemur"><img width="100" height="100" src="example-images/lemur.jpg"></a>
+		<a href="http://en.wikipedia.org/wiki/Penguin"><img width="100" height="100" src="example-images/penguins.jpg"></a>
+		<a href="http://en.wikipedia.org/wiki/Polar_bear"><img width="100" height="100" src="example-images/polarbear.jpg"></a>
+		<a href="http://en.wikipedia.org/wiki/Rabbit"><img width="100" height="100" src="example-images/rabbit.jpg"></a>
+		<a href="http://en.wikipedia.org/wiki/Rhinoceros"><img width="100" height="100" src="example-images/rhino.jpg"></a>
+		<a href="http://en.wikipedia.org/wiki/Common_seal"><img width="100" height="100" src="example-images/seal.jpg"></a>
+		<a href="http://en.wikipedia.org/wiki/Zebra"><img width="100" height="100" src="example-images/zebra.jpg"></a>
+	</div>
+	
+	
+	<p>HTML code:</p>
+	<pre class="code">
+&lt;div id="memory-game"&gt;
+	&lt;a href="http://en.wikipedia.org/wiki/Iguana"&gt;&lt;img width="100" height="100" src="example-images/iguana.jpg"&gt;&lt;/a&gt;
+	&lt;a href="http://en.wikipedia.org/wiki/Panda"&gt;&lt;img width="100" height="100" src="example-images/panda.jpg"&gt;&lt;/a&gt;
+	&lt;a href="http://en.wikipedia.org/wiki/Lemur"&gt;&lt;img width="100" height="100" src="example-images/lemur.jpg"&gt;&lt;/a&gt;
+	&lt;a href="http://en.wikipedia.org/wiki/Penguin"&gt;&lt;img width="100" height="100" src="example-images/penguins.jpg"&gt;&lt;/a&gt;
+	&lt;a href="http://en.wikipedia.org/wiki/Polar_bear"&gt;&lt;img width="100" height="100" src="example-images/polarbear.jpg"&gt;&lt;/a&gt;
+	&lt;a href="http://en.wikipedia.org/wiki/Rabbit"&gt;&lt;img width="100" height="100" src="example-images/rabbit.jpg"&gt;&lt;/a&gt;
+	&lt;a href="http://en.wikipedia.org/wiki/Rhinoceros"&gt;&lt;img width="100" height="100" src="example-images/rhino.jpg"&gt;&lt;/a&gt;
+	&lt;a href="http://en.wikipedia.org/wiki/Common_seal"&gt;&lt;img width="100" height="100" src="example-images/seal.jpg"&gt;&lt;/a&gt;
+	&lt;a href="http://en.wikipedia.org/wiki/Zebra"&gt;&lt;img width="100" height="100" src="example-images/zebra.jpg"&gt;&lt;/a&gt;
+&lt;/div&gt;
+	</pre>
+	<p>JavaScript code:</p>
+	<pre class="code">
+$(function(){
+	$("#memory-game").memoryGame();
+});
+	</pre>
+</body>
+</html>

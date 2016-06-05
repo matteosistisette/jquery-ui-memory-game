@@ -1,0 +1,21 @@
+{
+	"name": "memory-game",
+	"version": "0.0.1",
+	"title": "jQuery Memory Game",
+	"description": "A simple jQuery-UI widget for creating a \"Memory\" (cards) game",
+	"author": {
+		"name": "Matteo Sisti Sette",
+		"email": "matteosistisette@gmail.com",
+		"url": "http://matteosistisette.com"
+	},
+	"licenses": [
+		{
+			"type": "GPLv2",
+			"url": "http://www.gnu.org/licenses/gpl-2.0.html"
+		}
+	],
+	"dependencies": {
+		"jquery": "~1.11.0",
+		"jquery-ui": "~1.10.4"
+	}
+}

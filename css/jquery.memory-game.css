@@ -1,0 +1,48 @@
+.memory-game {
+	font-size: 0;
+}
+.memory-game-inner {
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.memory-card-container {
+	display: inline-block;
+	position: relative;
+}
+
+.memory-card-container a.front img.back, .memory-card-container a.back img.front {
+	display: none;
+}
+.memory-card-container a.front img.front, .memory-card-container a.back img.back {
+	display: block;
+}
+
+.memory-card-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.memory-card-container a {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	/*overflow: hidden;*/
+	padding: 0;
+}
+.memory-card-container a img {
+	border-radius: 6px;
+	border-width: 2px;
+	border-style: solid;
+}
+
+.memory-card-container a.front img {
+	border-color: black;
+}
+.memory-card-container a.back img {	
+	border-color: #666;
+}

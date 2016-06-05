@@ -1,0 +1,10 @@
+body {
+	font-family: Helvetica, Arial, sans-serif; 
+}
+
+#memory-game {
+	padding: 10px;
+	margin: 0;
+	background-color: #eee;
+}
+
