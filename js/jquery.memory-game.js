@@ -478,8 +478,8 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 										card: $(this).find("a"),
 										cardIndex: cardIndex,
 										cardInfo: game.option("cards")[cardIndex],
-										nDisclosed: game.ndisclosed,
-										totalCards: game.option("cards").length,
+										disclosedPairs: game.ndisclosed,
+										totalPairs: game.option("cards").length,
 										finished: (game.ndisclosed==game.option("cards").length)
 									});
 									game.currentCards=[];
