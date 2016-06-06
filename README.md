@@ -18,5 +18,13 @@ To be able to use the plugin, place the downloaded `css` and `js` folders in the
     <!-- INCLUDE THE PLUGIN (js and css) -->
     <link rel="stylesheet" href="css/jquery.memory-game.css">
     <script src="js/jquery.memory-game.js"></script>
+
     
+Basic usage
+-----------
+There are two ways of building a "Memory" card game using this plugin:
+- Build the list of cards through **HTML markup** (links wrapped around images), and convert it into a Memory game with one simple line of JavaScript
+- or, define the list of cards as a **JavaScript object** and pass it as a parameter to the plugin constructor
+
+###Defining the list of cards through HTML markup (minimal JavaScript code)###
 
