@@ -13,10 +13,10 @@
 	position: relative;
 }
 
-.memory-card-container a.front img.back, .memory-card-container a.back img.front {
+.memory-card-container a.front .back, .memory-card-container a.back .front {
 	display: none;
 }
-.memory-card-container a.front img.front, .memory-card-container a.back img.back {
+.memory-card-container a.front .front, .memory-card-container a.back .back {
 	display: block;
 }
 
@@ -31,18 +31,18 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	/*overflow: hidden;*/
 	padding: 0;
 }
-.memory-card-container a img {
+.card {
 	border-radius: 6px;
 	border-width: 2px;
 	border-style: solid;
 }
 
-.memory-card-container a.front img {
+.card.front {
 	border-color: black;
 }
-.memory-card-container a.back img {	
+.card.back {	
 	border-color: #666;
+	background-color: #ddd;
 }

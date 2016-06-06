@@ -36,7 +36,6 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		options: {
 			
 			cards: [],		
-			backImageUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAIAAAD/gAIDAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gYcEi0NMFabNAAAAKBJREFUeNrt0DEBAAAIAyC1f7dVsoKfD0SgkxQ3o0CWLFmyZMlSIEuWLFmyZCmQJUuWLFmyFMiSJUuWLFkKZMmSJUuWLAWyZMmSJUuWAlmyZMmSJUuBLFmyZMmSpUCWLFmyZMlSIEuWLFmyZCmQJUuWLFmyFMiSJUuWLFkKZMmSJUuWLAWyZMmSJUuWAlmyZMmSJUuBLFmyZMmSpUCWrG8LqfMDNSSSa8cAAAAASUVORK5CYII=",
 			
 			imagesPath: "",
 			
@@ -363,9 +362,9 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				$container.data("game", this);
 				$container.data("currentDirection", 0);
 				$wrapper.append($a);
-				var $img=$('<img src="'+this.options.imagesPath+cardInfo.imageUrl+'" class="front">');
+				var $img=$('<img src="'+this.options.imagesPath+cardInfo.imageUrl+'" class="card front">');
 				$a.append($img);
-				var $backimg=$('<img src="'+this.options.backImageUrl+'" class="back">');
+				var $backimg=$('<span class="card back"></span>');
 				$a.append($backimg);
 				this._setCardStatus($container, this.disclosed[cardIndex]?2:0, true);
 				$a.click(function(){
@@ -384,7 +383,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		_setCardStatus: function($card, status, store) {
 			if (store) $card.data("status", status);
 			var $frontImg=$card.find("img.front");
-			var $backImg=$card.find("img.back");
+			var $backImg=$card.find(".card.back");
 			var $a=$card.find("a");
 			if (status>0) {
 				$a.removeClass("back");
