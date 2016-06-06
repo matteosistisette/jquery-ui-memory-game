@@ -305,7 +305,6 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 								    "via 'width' and 'height' html attributes or CSS"
 								);
 							}
-							if (window.console) console.log(game.options);
 						}
 						first=false;
 					}
