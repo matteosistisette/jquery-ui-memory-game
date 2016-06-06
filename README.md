@@ -27,6 +27,6 @@ There are two ways of building a "Memory" card game using this plugin:
 - or, define the list of cards as a **JavaScript object** and pass it as a parameter to the plugin constructor
 
 ###Using HTML markup
-See a live example here: [http://jsbin.com/kawipa](http://jsbin.com/kawipa/edit?html,css,output)
+See a live example here: [http://jsbin.com/kawipa](http://jsbin.com/kawipa/edit?html,output)
 
 ###The all-JavaScript way
