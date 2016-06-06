@@ -474,9 +474,8 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 									game.enableCardLink($currentCard0);
 									game.enableCardLink($currentCard1);
 									game.setDisclosed(cardIndex);
-									console.log(this);
 									game.option("onPairDisclosed").call(game, {
-										card: $(this).find("a")[0],
+										card: this,
 										cardIndex: cardIndex,
 										cardInfo: game.option("cards")[cardIndex],
 										disclosedPairs: game.ndisclosed,
