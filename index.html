@@ -31,7 +31,7 @@
 	<h1>Memory Game jQuery plugin by Matteo Sisti Sette</h1>
 	<h2>A jQuery plugin to create "Memory" card games</h2>
 	<p><a href="https://github.com/matteosistisette/jquery-ui-memory-game">Download from Github</a>. The code for the example below is at the bottom of this page. See more examples <a href="https://github.com/matteosistisette/jquery-ui-memory-game/blob/master/README.md">here</a></p>
-	<p>Once a pair of matching cards is disclosed, those cards become regular links. You can click on them again to open the link.</p>
+	<p>Once a pair of matching cards is disclosed, those cards become regular links. You can then click on them again to open the link.</p>
 
 	<!-- MARKUP --> 
 	<div id="memory-game">
@@ -47,7 +47,16 @@
 	</div>
 	
 	
-	<p>HTML code:</p>
+	<h2>HTML code:</h2>
+	<p>Include jQuery, jQuery-UI and the plugin (place this in the <code>&lt;head&gt;</code>):</p>
+	<pre class="code">
+	&lt;script src="https://code.jquery.com/jquery-2.2.4.js"&gt;&lt;/script&gt;
+	&lt;script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"&gt;&lt;/script&gt;
+	  
+	&lt;link rel="stylesheet" href="http://matteosistisette.github.io/jquery-ui-memory-game/css/jquery.memory-game.css"&gt;
+	&lt;script src="http://matteosistisette.github.io/jquery-ui-memory-game/js/jquery.memory-game.js"&gt;&lt;/script&gt;
+	</pre>
+	<p>Markup that will be converted into cards (place this somewhere in the <code>&lt;body&gt;</code>):
 	<pre class="code">
 &lt;div id="memory-game"&gt;
 	&lt;a href="http://en.wikipedia.org/wiki/Iguana"&gt;&lt;img width="100" height="100" src="example-images/iguana.jpg"&gt;&lt;/a&gt;
@@ -61,7 +70,7 @@
 	&lt;a href="http://en.wikipedia.org/wiki/Zebra"&gt;&lt;img width="100" height="100" src="example-images/zebra.jpg"&gt;&lt;/a&gt;
 &lt;/div&gt;
 	</pre>
-	<p>JavaScript code:</p>
+	<h2>JavaScript code:</h2>
 	<pre class="code">
 $(function(){
 	$("#memory-game").memoryGame();
