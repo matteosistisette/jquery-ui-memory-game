@@ -53,8 +53,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			order: null,
 			alreadyDisclosed: [],
 		
-			onPairDisclosed: function(cardIndex, cardInfo) {},
-			onComplete: function() {}
+			onPairDisclosed: function(object) {}
 			
 		},
 		
@@ -476,7 +475,14 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 									game.enableCardLink($currentCard0);
 									game.enableCardLink($currentCard1);
 									game.setDisclosed(cardIndex);
-									game.option("onPairDisclosed").call(game,cardIndex, game.option("cards")[cardIndex]);
+									game.option("onPairDisclosed").call(game, {
+										card: $(this).find("a"),
+										cardIndex: cardIndex,
+										cardInfo: game.option("cards")[cardIndex],
+										nDisclosed: game.ndisclosed,
+										totalCards: game.option("cards").length,
+										finished: (game.ndisclosed==game.option("cards").length)
+									});
 									game.currentCards=[];
 								}
 								else {
