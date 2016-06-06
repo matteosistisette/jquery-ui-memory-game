@@ -26,7 +26,27 @@ There are two ways of building a "Memory" card game using this plugin:
 - Build the list of cards through **HTML markup** (links wrapped around images), and convert it into a Memory game with one simple line of JavaScript
 - or, define the list of cards as a **JavaScript object** and pass it as a parameter to the plugin constructor
 
-###Using HTML markup
-See a live example here: [http://jsbin.com/kawipa](http://jsbin.com/kawipa/edit?html,output)
+###Creating the list of cards in HTML
+See complete live example here: [http://jsbin.com/kawipa](http://jsbin.com/kawipa/edit?html,output)
 
-###The all-JavaScript way
+HTML markup:
+
+    <div id="memory-game">
+      <a href="http://en.wikipedia.org/wiki/Iguana"><img width="100" height="100" src="example-images/iguana.jpg"></a>
+      <a href="http://en.wikipedia.org/wiki/Panda"><img width="100" height="100" src="example-images/panda.jpg"></a>
+      <a href="http://en.wikipedia.org/wiki/Lemur"><img width="100" height="100" src="example-images/lemur.jpg"></a>
+      <a href="http://en.wikipedia.org/wiki/Penguin"><img width="100" height="100" src="example-images/penguins.jpg"></a>
+      <a href="http://en.wikipedia.org/wiki/Polar_bear"><img width="100" height="100" src="example-images/polarbear.jpg"></a>
+      <a href="http://en.wikipedia.org/wiki/Rabbit"><img width="100" height="100" src="example-images/rabbit.jpg"></a>
+      <a href="http://en.wikipedia.org/wiki/Rhinoceros"><img width="100" height="100" src="example-images/rhino.jpg"></a>
+      <a href="http://en.wikipedia.org/wiki/Common_seal"><img width="100" height="100" src="example-images/seal.jpg"></a>
+      <a href="http://en.wikipedia.org/wiki/Zebra"><img width="100" height="100" src="example-images/zebra.jpg"></a>
+    </div>
+
+JavaScript code:
+    <script>
+    $(function(){
+        $("#memory-game").memoryGame();
+    });
+
+###Creating the list of cards in JavaScript
