@@ -44,9 +44,11 @@ HTML markup:
     </div>
 
 JavaScript code:
+
     <script>
     $(function(){
         $("#memory-game").memoryGame();
     });
+    </script>
 
 ###Creating the list of cards in JavaScript
