@@ -51,7 +51,7 @@ JavaScript code:
     });
     </script>
 
-**NOTE:** The size of the card images in pixels must be known (and fixed) when the plugin is instantiated. In the above example, the plugin is instantiated in the `document ready` event, so the sizes cannot be automatically automatically deduced by the actual image sizes, because at this time the images aren't loaded yet. That's why we need the explicit `width` and `height` html attributes, at least on the first image; alternatively, CSS could be used instead. See below for more details and alternatives.
+**NOTE:** The size of the card images in pixels must be known (and fixed) when the plugin is instantiated. That's why we need the explicit `width` and `height` html attributes, at least on the first image; alternatively, CSS could be used. See below for more details and alternatives.
 
 ###Using a JavaScript array
 See complete live example here: [http://jsbin.com/vonaye](http://jsbin.com/vonaye/edit?html,output)
@@ -67,39 +67,39 @@ JavaScript code:
       $("#memory-game").memoryGame({
         cards: [
           {
-            imageUrl: 'http://matteosistisette.github.io/jquery-ui-memory-game/example-images/iguana.jpg',
+            imageUrl: 'example-images/iguana.jpg',
             linkUrl: 'http://en.wikipedia.org/wiki/Iguana'
           },
           {
-            imageUrl: 'http://matteosistisette.github.io/jquery-ui-memory-game/example-images/panda.jpg',
+            imageUrl: 'example-images/panda.jpg',
             linkUrl: 'http://en.wikipedia.org/wiki/Panda'
           },
           {
-            imageUrl: 'http://matteosistisette.github.io/jquery-ui-memory-game/example-images/lemur.jpg',
+            imageUrl: 'example-images/lemur.jpg',
             linkUrl: 'http://en.wikipedia.org/wiki/Lemur'
           },
           {
-            imageUrl: 'http://matteosistisette.github.io/jquery-ui-memory-game/example-images/penguins.jpg',
+            imageUrl: 'example-images/penguins.jpg',
             linkUrl: 'http://en.wikipedia.org/wiki/Penguin'
           },
           {
-            imageUrl: 'http://matteosistisette.github.io/jquery-ui-memory-game/example-images/polarbear.jpg',
+            imageUrl: 'example-images/polarbear.jpg',
             linkUrl: 'http://en.wikipedia.org/wiki/Polar_bear'
           },
           {
-            imageUrl: 'http://matteosistisette.github.io/jquery-ui-memory-game/example-images/rabbit.jpg',
+            imageUrl: 'example-images/rabbit.jpg',
             linkUrl: 'http://en.wikipedia.org/wiki/Rabbit'
           },
           {
-            imageUrl: 'http://matteosistisette.github.io/jquery-ui-memory-game/example-images/rhino.jpg',
+            imageUrl: 'example-images/rhino.jpg',
             linkUrl: 'http://en.wikipedia.org/wiki/Rhinoceros'
           },
           {
-            imageUrl: 'http://matteosistisette.github.io/jquery-ui-memory-game/example-images/seal.jpg',
+            imageUrl: 'example-images/seal.jpg',
             linkUrl: 'http://en.wikipedia.org/wiki/Common_seal'
           },
           {
-            imageUrl: 'http://matteosistisette.github.io/jquery-ui-memory-game/example-images/zebra.jpg',
+            imageUrl: 'example-images/zebra.jpg',
             linkUrl: 'http://en.wikipedia.org/wiki/Zebra'
           }
         ],
@@ -108,3 +108,5 @@ JavaScript code:
       });
     });
     </script>
+    
+**NOTE:** if you use this method, you have to specify the card image height and width via the `cardWidth` and `cardHeight` parameters.
