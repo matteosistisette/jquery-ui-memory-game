@@ -24,9 +24,9 @@ Basic usage
 -----------
 There are two ways of building a "Memory" card game using this plugin:
 - Build the list of cards through **HTML markup** (links wrapped around images), and convert it into a Memory game with one simple line of JavaScript
-- or, define the list of cards as a **JavaScript object** and pass it as a parameter to the plugin constructor
+- or, define the list of cards as a **JavaScript array** and pass it as a parameter to the plugin constructor
 
-###Creating the list of cards in HTML
+###Using HTML markup
 See complete live example here: [http://jsbin.com/kawipa](http://jsbin.com/kawipa/edit?html,output)
 
 HTML markup:
@@ -51,4 +51,6 @@ JavaScript code:
     });
     </script>
 
-###Creating the list of cards in JavaScript
+**NOTE:** The size of the card images in pixels must be known (and fixed) when the plugin is instantiated. In the above example, the plugin is instantiated in the `document ready` event, so the sizes cannot be automatically automatically deduced by the actual image sizes, because at this time the images aren't loaded yet. That's why we need the explicit `width` and `height` html attributes, at least on the first image; alternatively, CSS could be used instead.
+
+###Using a JavaScript array
