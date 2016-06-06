@@ -365,11 +365,11 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				var $img=$('<img src="'+this.options.imagesPath+cardInfo.imageUrl+'" class="card front">');
 				$a.append($img);
 				var $backimg=$('<span class="card back"></span>');
+				$a.append($backimg);
 				$backimg.css({
 					width: this.options.cardWidth,
 					height: this.options.cardHeight
 				});
-				$a.append($backimg);
 				this._setCardStatus($container, this.disclosed[cardIndex]?2:0, true);
 				$a.click(function(){
 					var $card=$(this).parents(".memory-card-container");
