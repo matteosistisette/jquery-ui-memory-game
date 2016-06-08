@@ -514,7 +514,6 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 						$card.data("status", 0);
 						game.popCurrentCard($card);
 						if (game.resetPending!==null) {
-							game.resetPending=null;
 							game.reset(false, game.resetPending.reorder, game.resetPending.rebuild);
 						}
 					}
