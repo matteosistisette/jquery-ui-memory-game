@@ -110,3 +110,30 @@ JavaScript code:
     </script>
     
 **NOTE:** if you use this method, you have to specify the card image height and width via the `cardWidth` and `cardHeight` parameters.
+
+
+Handling events
+---------------
+
+See complete live example here: [http://jsbin.com/puxafos](http://jsbin.com/puxafos/edit?html,output)
+
+You may want to make something happen every time a new pair of matching cards is succesfully disclosed. You do so by passing in a function as the `onPairDisclosed` parameter to the plugin:
+    <script>
+    $(function(){
+      $("#memory-game").memoryGame({
+        onPairDisclosed:function(info) {
+          alert(
+            "Congratulations! You have disclosed " +
+            info.disclosedPairs +
+            " of " + info.totalPairs + " matching pairs.\n" +
+            "The link will now open in a new window"
+          );
+          window.open($(info.card).attr("href"),"popup"+info.disclosedPairs,"width=400,height=400");
+          if (info.finished) {
+            alert("Congratulations! You have finished the game!\n\n"+"Now we'll start over.");
+            this.reset(true /*animated*/, true /*shuffle*/);
+          }
+        }
+      });
+    });
+    </script>
