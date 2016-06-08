@@ -117,7 +117,7 @@ Handling events
 
 See complete live example here: [http://jsbin.com/puxafos](http://jsbin.com/puxafos/edit?html,output)
 
-You may want to make something happen every time a new pair of matching cards is succesfully disclosed. You do so by passing in a function as the `onPairDisclosed` parameter to the plugin:
+You may want to make something happen every time a new pair of matching cards is succesfully disclosed. You do so by passing in a callback function as the `onPairDisclosed` parameter:
 
     <script>
     $(function(){
