@@ -72,6 +72,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				this._closeCards();
 			}
 			else {
+				this.resetPending=null;
 				if (rebuild) {
 					this._cleanUp();
 					this._build();
@@ -514,7 +515,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 						game.popCurrentCard($card);
 						if (game.resetPending!==null) {
 							game.resetPending=null;
-							game.reset(false, resetPending.reorder, resetPending.rebuild);
+							game.reset(false, game.resetPending.reorder, game.resetPending.rebuild);
 						}
 					}
 					
