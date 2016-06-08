@@ -31,6 +31,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		timeoutId: null,
 		ready: false,
 		innerElement: null,
+		resetPending: null,
 		
 				
 		options: {
