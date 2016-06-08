@@ -91,7 +91,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			$(this.innerElement).children().each(function(){
 				$(this).detach();
 				cards.push($(this));
-				rotations.push($(this).find(".memory-card-wrapper").data("rotation");
+				rotations.push($(this).find(".memory-card-wrapper").data("rotation"));
 			});
 			var i=0;
 			while (cards.length>0) {
