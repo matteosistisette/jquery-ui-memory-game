@@ -514,9 +514,10 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 					$card.data("currentDirection", 0);
 					
 					if (event) {
+						var card=this;
 						setTimeout(function(){
 							game.option("onPairDisclosed").call(game, {
-								card: this,
+								card: card,
 								cardIndex: cardIndex,
 								cardInfo: game.option("cards")[cardIndex],
 								disclosedPairs: game.ndisclosed,
