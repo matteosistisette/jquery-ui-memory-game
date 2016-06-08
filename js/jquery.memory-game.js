@@ -438,7 +438,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		
 		_startFlip: function(card, direction) {
 			var $card=$(card);
-			$card.stop(true);
+			//$card.stop(true);
 			$card.data("currentDirection", direction);
 			if (direction>0) {
 				this.currentCards.push(card);
@@ -492,6 +492,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 									game.enableCardLink($currentCard0);
 									game.enableCardLink($currentCard1);
 									game.setDisclosed(cardIndex);
+									game.currentCards=[];
 									game.option("onPairDisclosed").call(game, {
 										card: this,
 										cardIndex: cardIndex,
@@ -500,7 +501,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 										totalPairs: game.option("cards").length,
 										finished: (game.ndisclosed==game.option("cards").length)
 									});
-									game.currentCards=[];
+									
 								}
 								else {
 									game.closeCurrentCards();
