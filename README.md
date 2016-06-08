@@ -123,16 +123,18 @@ You may want to make something happen every time a new pair of matching cards is
     $(function(){
       $("#memory-game").memoryGame({
         onPairDisclosed:function(info) {
-          alert(
-            "Congratulations! You have disclosed " +
-            info.disclosedPairs +
-            " of " + info.totalPairs + " matching pairs.\n" +
-            "The link will now open in a new window"
-          );
-          window.open($(info.card).attr("href"),"popup"+info.disclosedPairs,"width=400,height=400");
           if (info.finished) {
             alert("Congratulations! You have finished the game!\n\n"+"Now we'll start over.");
-            this.reset(true /*animated*/, true /*shuffle*/);
+            this.reset(true, true);
+          }
+          else {
+            alert(
+              "Congratulations! You have disclosed " +
+              info.disclosedPairs +
+              " of " + info.totalPairs + " matching pairs.\n" +
+              "The link will now open in a new window"
+            );
+            window.open($(info.card).attr("href"),"popup"+info.disclosedPairs,"width=400,height=400");
           }
         }
       });
