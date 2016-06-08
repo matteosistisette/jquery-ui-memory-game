@@ -79,22 +79,33 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				}
 				else {
 					this._resetCards();
-					if (reorder) this.reorder();
+					if (reorder) this.reorder(true);
 				}
 			}
 		},
 		
-		reorder:function() {
+		reorder:function(keepRotations) {
+			if (keepRotations===undefined) keepRotations=true;
 			var cards=[];
+			var rotations=[];
 			$(this.innerElement).children().each(function(){
 				$(this).detach();
 				cards.push($(this));
+				rotations.push($(this).find(".memory-card-wrapper").data("rotation");
 			});
+			var i=0;
 			while (cards.length>0) {
 				var n=Math.min(Math.floor(Math.random()*cards.length),cards.length-1);
 				var $card=cards[n];
 				cards.splice(n,1);
+				if (keepRotations) {
+					cards.data("rotation", rotations[i]);
+					cards.css({
+						transform: 'rotate('+rotations[i]+'deg)'
+					});
+				}
 				$(this.innerElement).append($card);
+				i++;
 			}
 		},
 		
@@ -197,7 +208,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				var rotation=(Math.random()*2-1)*game.option("maxRotation");
 				$wrapper.css({
 					transform: 'rotate('+rotation+'deg)'
-				});
+				}).data("rotation", rotation);
 			});
 		},
 		
