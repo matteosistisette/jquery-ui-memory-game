@@ -63,15 +63,22 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			// if (rebuild) completely rebuilds the widget
 			//              (usually only needed after modifying the cards array)
 			
-			if (reorder || rebuild) animated=false;
-			
-			if (rebuild) {
-				this._cleanUp();
-				this._build();
+			if (animated) {
+				this.resetPending={
+					reorder: reorder,
+					rebuild: rebuild
+				};
+				this._closeCards();
 			}
 			else {
-				this._resetCards(animated);
-				if (reorder) this.reorder();
+				if (rebuild) {
+					this._cleanUp();
+					this._build();
+				}
+				else {
+					this._resetCards();
+					if (reorder) this.reorder();
+				}
 			}
 		},
 		
@@ -226,6 +233,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			this.ndisclosed=0;
 			this.currentCards=[];
 			this.elementId=$(this.element).attr("id");
+			this.resetPending=null;
 			
 			if (firstTime) {
 				if (this.options.cards.length>0) {
@@ -320,7 +328,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			this.options.cards=cards;
 		},
 		
-		_resetCards: function(animated) {
+		_resetCards: function() {
 			if (this.timeoutId) {
 				clearTimeout(this.timeoutId);
 				this.timeoutId=null;
@@ -329,19 +337,27 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			var game=this;
 			$(this.innerElement).children().each(function(){
 				if ($(this).data("status")>0) {
-					if (animated) {
-						if ($(this).data("currentDirection")>=0) {
-							game._startFlip(this,0);
-						}
-					}
-					else {
-						$(this).stop(true);
-						game._setCardStatus($(this), 0, true);
-					}
+					$(this).stop(true);
+					game._setCardStatus($(this), 0, true);
 				}
 			});
 		
 		},
+		
+		_closeCards: function() {
+			if (this.timeoutId) {
+				clearTimeout(this.timeoutId);
+				this.timeoutId=null;
+			}
+			var game=this;
+			$(this.innerElement).children().each(function(){
+				if ($(this).data("status")>0) {
+					if ($(this).data("currentDirection")>=0) {
+						game._startFlip(this,0);
+					}
+				}
+			});
+		}
 		
 		_createCard: function(cardIndex, cardInfo) {
 			for (var i=0; i<2; i++) {
@@ -495,6 +511,10 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 					else {
 						$card.data("status", 0);
 						game.popCurrentCard($card);
+						if (game.resetPending!==null) {
+							game.resetPending=null;
+							game.reset(false, resetPending.reorder, resetPending.rebuild);
+						}
 					}
 					
 					$card.data("currentDirection", 0);
