@@ -514,14 +514,16 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 					$card.data("currentDirection", 0);
 					
 					if (event) {
-						game.option("onPairDisclosed").call(game, {
-							card: this,
-							cardIndex: cardIndex,
-							cardInfo: game.option("cards")[cardIndex],
-							disclosedPairs: game.ndisclosed,
-							totalPairs: game.option("cards").length,
-							finished: (game.ndisclosed==game.option("cards").length)
-						});
+						setTimeout(function(){
+							game.option("onPairDisclosed").call(game, {
+								card: this,
+								cardIndex: cardIndex,
+								cardInfo: game.option("cards")[cardIndex],
+								disclosedPairs: game.ndisclosed,
+								totalPairs: game.option("cards").length,
+								finished: (game.ndisclosed==game.option("cards").length)
+							});
+						},1)
 					}
 				
 				});
