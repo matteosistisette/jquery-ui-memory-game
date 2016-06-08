@@ -456,6 +456,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			
 			
 			var $a=$card.find("a");
+			if (window.console) console.log("Starting first half of animation");
 			$a.animateScaleX(1, 0, this.options.cardFlipDuration/2, "linear", function(){
 				var $card=$(this).parents(".memory-card-container");
 				var game=$card.data("game");
@@ -470,7 +471,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				}
 				
 					
-					
+				if (window.console) console.log("Starting second half of animation");
 				$(this).animateScaleX(0, 1, game.option("cardFlipDuration")/2, "linear", function(){
 					var $card=$(this).parents(".memory-card-container");
 					var game=$card.data("game");
