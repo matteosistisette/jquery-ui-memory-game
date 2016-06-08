@@ -355,7 +355,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			$(this.innerElement).children().each(function(){
 				if ($(this).data("status")>0) {
 					if ($(this).data("currentDirection")>=0) {
-						game._startFlip(this,0);
+						game._startFlip(this,-1);
 					}
 				}
 			});
