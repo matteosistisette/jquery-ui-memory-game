@@ -357,7 +357,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 					}
 				}
 			});
-		}
+		},
 		
 		_createCard: function(cardIndex, cardInfo) {
 			for (var i=0; i<2; i++) {
