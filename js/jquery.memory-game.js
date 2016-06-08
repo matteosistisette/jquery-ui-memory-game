@@ -99,8 +99,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				var $card=cards[n];
 				cards.splice(n,1);
 				if (keepRotations) {
-					$card.data("rotation", rotations[i]);
-					$card.css({
+					$card.find(".memory-card-wrapper").data("rotation", rotations[i]).css({
 						transform: 'rotate('+rotations[i]+'deg)'
 					});
 				}
