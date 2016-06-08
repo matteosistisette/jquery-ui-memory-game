@@ -477,6 +477,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 					var game=$card.data("game");
 					var direction=$card.data("currentDirection");
 					var cardIndex=$card.data("cardIndex");
+					var event=false;
 					if (direction>0) {
 						var disclosed=false;
 						if (game.getCurrentCardsLength()>0) { 
@@ -493,16 +494,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 									game.enableCardLink($currentCard0);
 									game.enableCardLink($currentCard1);
 									game.setDisclosed(cardIndex);
-									game.currentCards=[];
-									game.option("onPairDisclosed").call(game, {
-										card: this,
-										cardIndex: cardIndex,
-										cardInfo: game.option("cards")[cardIndex],
-										disclosedPairs: game.ndisclosed,
-										totalPairs: game.option("cards").length,
-										finished: (game.ndisclosed==game.option("cards").length)
-									});
-									
+									event=true;
 								}
 								else {
 									game.closeCurrentCards();
@@ -521,6 +513,17 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 					}
 					
 					$card.data("currentDirection", 0);
+					
+					if (event) {
+						game.option("onPairDisclosed").call(game, {
+							card: this,
+							cardIndex: cardIndex,
+							cardInfo: game.option("cards")[cardIndex],
+							disclosedPairs: game.ndisclosed,
+							totalPairs: game.option("cards").length,
+							finished: (game.ndisclosed==game.option("cards").length)
+						});
+					}
 				
 				});
 					
