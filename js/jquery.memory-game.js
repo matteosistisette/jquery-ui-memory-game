@@ -494,6 +494,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 									game.enableCardLink($currentCard0);
 									game.enableCardLink($currentCard1);
 									game.setDisclosed(cardIndex);
+									game.currentCards=[];
 									event=true;
 								}
 								else {
