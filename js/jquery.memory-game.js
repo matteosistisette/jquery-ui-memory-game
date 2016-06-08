@@ -136,7 +136,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			var rows=Math.ceil(ncards/columns);
 			
 			if (rows*(this.options.cardHeight+2*this.options.minCardMargin)<maxHeight) {
-				var squareColumns=Math.round(Math.sqrt(ncards));
+				var squareColumns=Math.ceil(Math.sqrt(ncards));
 				if (squareColumns<columns) {
 					var squareRows=Math.ceil(ncards/squareColumns);
 					if (squareRows*(this.options.cardHeight+2*this.options.minCardMargin)<=maxHeight) {
