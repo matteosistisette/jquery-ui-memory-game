@@ -32,6 +32,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		ready: false,
 		innerElement: null,
 		resetPending: null,
+		nmoves: 0,
 		
 				
 		options: {
@@ -243,6 +244,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		_init: function(firstTime) {
 			this.disclosed=[];
 			this.ndisclosed=0;
+			this.nmoves=0;
 			this.currentCards=[];
 			this.elementId=$(this.element).attr("id");
 			this.resetPending=null;
@@ -426,6 +428,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		},
 		
 		_cardClicked: function(card) {
+			this.nmoves++;
 			var $card=$(card);
 			if ($card.data("currentDirection")!=0 || this.currentCards.length>1) return false;
 			var cardStatus=$card.data("status");
@@ -532,6 +535,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 								cardInfo: game.option("cards")[cardIndex],
 								disclosedPairs: game.ndisclosed,
 								totalPairs: game.option("cards").length,
+								moves: nmoves,
 								finished: (game.ndisclosed==game.option("cards").length)
 							});
 						},1)

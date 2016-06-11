@@ -179,6 +179,7 @@ This callback function will be called every time a new pair of matching card is 
 - **`cardInfo`**: (`Object`) the object containing information about the disclosed card pair. This object has at least two properties, `imageUrl` and `linkUrl`; if you defined the array of cards yourself in JavaScript and passed it to the widget constructor, or if you bound data to the card (see *Binding extra data to the cards* below) it may contains more properties.
 - **`disclosedPairs`**: (`Number`) the number of matching pairs of cards succesfully disclosed until now, including the one that triggered the event
 - **`totalPairs`**: (`Number`) the total number of pairs of cards in the game
+- **`moves`**: ('Number') the number of moves (i.e. clicks on cards)
 - **`finished`**: (`Boolean`) whether this was the last pair of cards in the game.
 
 Note that, inside the code of your `onPairDisclosed` callback function, **`this`** is the widget instance.
