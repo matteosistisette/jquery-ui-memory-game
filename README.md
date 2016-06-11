@@ -43,6 +43,7 @@ HTML markup:
   <a href="http://en.wikipedia.org/wiki/Common_seal"><img width="100" height="100" src="example-images/seal.jpg"></a>
   <a href="http://en.wikipedia.org/wiki/Zebra"><img width="100" height="100" src="example-images/zebra.jpg"></a>
 </div>
+```
 
 JavaScript code:
 ```html
