@@ -216,6 +216,39 @@ See it live here: [http://jsbin.com/wuxelo](http://jsbin.com/wuxelo/edit?html,ou
 
 ### Card spacing
 
-The widget will always do its best to lay out the cards in the "nicest" possible way while profiting the available space (see the next section for more details). In doing this, it will adjust the **horizontal and vertical space between adjacent cards** as needed.
+The widget will do its best to lay out the cards in the "nicest" possible way while profiting the available space (see the next section for more details). In doing this, it will adjust the **horizontal and vertical space between adjacent cards** as needed, but always between a minimum and a maximum.
 
-However, the distance between 
+You can set these minimum and maximum value with the `minCardMargin` and `maxCardMargin` parameters: 
+```html
+<script>
+$(function(){
+  $("#memory-game").memoryGame({
+    minCardMargin: 20,
+    maxCardMargin: 100
+  });
+  // Wide min-max range:
+  //   => will grow and shrink a lot depending on the available space
+});
+</script>
+```
+See it live here: [http://jsbin.com/bixonex](http://jsbin.com/bixonex/edit?html,output)
+
+The card *margin* is by definition half the distance between the edges of two adjacent cards. These parameters determine the minimum and maximum values for it, in pixels.
+
+```html
+<script>
+$(function(){
+  $("#memory-game").memoryGame({
+    minCardMargin: 30,
+    maxCardMargin: 30
+  });
+  // Same value for min and max:
+  //   => distance between cards is fixed. The number of rows and columns may vary a bit more.
+});
+</script>
+```
+See it live here: [http://jsbin.com/canamop](http://jsbin.com/canamop/edit?html,output)
+
+**NOTE:** the distance between the edges of two adjacent card is computed **as if they were not rotated**, so when deciding the `minCardMargin` you need to take into account the extra space needed to accomodate for the rotation.
+
+
