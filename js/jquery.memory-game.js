@@ -239,7 +239,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			this._init(true);
 			this._build();
 			var game=this;
-			if (this.options.autoResize) $(this.element).resize(function() {
+			if (this.options.autoResize) $(window).resize(function() {
 				game.resize();
 			});
 		},

@@ -289,8 +289,8 @@ See it live here: [http://jsbin.com/bekuwe](http://jsbin.com/bekuwe).
 
 ### Overriding automatic resizing
 
-By default, the widget automatically attaches its own listener to its HTML node's **`onresize`** event, calling the widget's public `resize` method which refreshes the layout.
+By default, the widget automatically attaches its own listener to **the window's `onresize`** event, calling the widget's public `resize` method which refreshes the layout.
 
-Usually this means you don't have to do worry about anything, and the widget will just adapt its layout automatically every time the window is resized. This is usually the case even if you have your own listener for the window's (or other DOM nodes') `onresize` event which in turn programmatically change the widget's DOM node's width: because this will trigger the widget's listener attached to the node's event.
+Usually this means you don't have to do worry about anything, and the widget will just adapt its layout automatically every time the window is resized. 
 
-In some cases, however, you may want to take control yourself over the resizing of the widget. This might be the case if for some reason you need to attach your own listener(s) to the `onresize` event of the very widget's DOM node, or if you want to 
+In some cases, however, you may want to take control yourself over the resizing of the widget. This might be the case for example if you want to attach your own listener(s) to the window's (or some other DOM nodes') `onresize` event, and programmatically change the widget's container width. In this scenario, the order 
