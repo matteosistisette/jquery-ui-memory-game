@@ -44,6 +44,8 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			cardWidth: 'auto',
 			cardHeight: 'auto',
 			
+			preferredAspectRatio: 1,
+			
 			cardFlipDuration: 300, 
 			flipBackTimeout: 1000,
 			
@@ -136,8 +138,8 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			var columns = Math.min(Math.floor(gameWidth/(this.options.cardWidth+2*this.options.minCardMargin)), ncards);
 			var rows=Math.ceil(ncards/columns);
 			
-			if (rows*(this.options.cardHeight+2*this.options.minCardMargin)<maxHeight) {
-				var squareColumns=Math.ceil(Math.sqrt(ncards));
+			if (this.options.preferredAspectRatio>0 && rows*(this.options.cardHeight+2*this.options.minCardMargin)<maxHeight) {
+				var squareColumns=Math.ceil(Math.sqrt(ncards*this.options.preferredAspectRatio));
 				if (squareColumns<columns) {
 					var squareRows=Math.ceil(ncards/squareColumns);
 					if (squareRows*(this.options.cardHeight+2*this.options.minCardMargin)<=maxHeight) {
