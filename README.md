@@ -174,9 +174,9 @@ You may want to make something happen every time a new pair of matching cards is
     
 This callback function will be called every time a new pair of matching card is disclosed succesfully, and it will be passed one parameter (named `info` in the example above) which is an object containing the following properties:
 
-- **`card`**: (`Element`) the HTML `<a>` node that wraps the card that has just been disclosed. This is also the preferred way of accessing any information associated to the card (see the section *Binding extra data to the cards* below)
-- **`cardIndex`**: (`Number`) the index of the disclosed pair in the array of cards (one element per pair of cards). `this.options.cards[info.cardIndex]` is the same as `info.cardInfo` described below. Usually you shouldn't need this, unless you are storing information related to the cards in a separate array, which is not recommended (see *Binding extra data to the cards* below) or you are doing weird stuff with the array of cards.
-- **`cardInfo`**: (`Object`) the object containing information about the disclosed card pair. This object has at least two properties, `imageUrl` and `linkUrl`; if you defined the array of cards yourself in JavaScript and passed it to the widget constructor, or if you bound data to the card (see *Binding extra data to the cards* below) it may contains more properties.
+- **`card`**: (`Element`) the HTML `<a>` node that wraps the card that has just been disclosed. This is also the preferred way of accessing any information associated to the card (see the section *Attaching extra data to the cards* below)
+- **`cardIndex`**: (`Number`) the index of the disclosed pair in the array of cards (one element per pair of cards). `this.options.cards[info.cardIndex]` is the same as `info.cardInfo` described below. Usually you shouldn't need this, unless you are storing information related to the cards in a separate array, which is not recommended (see *Attaching extra data to the cards* below) or you are doing weird stuff with the array of cards.
+- **`cardInfo`**: (`Object`) the object containing information about the disclosed card pair. This object has at least two properties, `imageUrl` and `linkUrl`; if you defined the array of cards yourself in JavaScript and passed it to the widget constructor, or if you bound data to the card (see *Attaching extra data to the cards* below) it may contains more properties.
 - **`disclosedPairs`**: (`Number`) the number of matching pairs of cards succesfully disclosed until now, including the one that triggered the event
 - **`totalPairs`**: (`Number`) the total number of pairs of cards in the game
 - **`moves`**: (`Number`) the number of moves (i.e. clicks on cards)
@@ -338,3 +338,15 @@ function myResize(){
 See it live here: [http://output.jsbin.com/sahesa](http://output.jsbin.com/sahesa)
 
 Note that in this case we **don't** need to call `$("#memory-game").memoryGame("resize");` explicitly in our listener, because we are changing options which affect the layout and this already triggers an internal call to the widget's `resize` method.
+
+
+Attaching extra data to the cards
+---------------------------------
+
+See complete live example here: 
+
+You can store and retrieve information into and from cards simply by using **HTML5 `data-*` attributes** and/or **jQuery's `.data()` method**. The easiest way is to attach the data to the `<a>` elements, since those are the ones that are passed to the `onPairDisclosed(info)` callback in the `info.card` property.
+
+HTML code:
+
+
