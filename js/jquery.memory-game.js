@@ -199,7 +199,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		},
 		
 		
-		_arrangeCards: function() {
+		_arrangeCards: function(rotate) {
 			var game=this;
 			$(this.innerElement).children(".memory-card-container").each(function(){
 				var $a=$(this).find("a");
@@ -212,10 +212,12 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 					height: game.option("cardHeight")
 				});
 				var $wrapper=$(this).find(".memory-card-wrapper");
-				var rotation=(Math.random()*2-1)*game.option("maxRotation");
-				$wrapper.css({
-					transform: 'rotate('+rotation+'deg)'
-				}).data("rotation", rotation);
+				if (rotate) {
+					var rotation=(Math.random()*2-1)*game.option("maxRotation");
+					$wrapper.css({
+						transform: 'rotate('+rotation+'deg)'
+					}).data("rotation", rotation);
+				}
 			});
 		},
 		
@@ -308,7 +310,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			}
 			this.reorder();
 			this.resize();
-			this._arrangeCards();
+			this._arrangeCards(true);
 			this.ready=true;
 		},
 		
