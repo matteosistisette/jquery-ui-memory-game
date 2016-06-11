@@ -185,4 +185,37 @@ This callback function will be called every time a new pair of matching card is 
 Note that, inside the code of your `onPairDisclosed` callback function, **`this`** is the widget instance.
 
 
+Controlling card layout
+-----------------------
 
+### Card rotation
+
+By default, the widget rotates each card by a **small random angle** in order to give them a "real" feel. You can adjust the maximum rotation to your taste by using the **`maxRotation`** parameter:
+```html
+<script>
+$(function(){
+  $("#memory-game").memoryGame({
+    maxRotation: 25 // maximum rotation in either direction in degrees
+  });
+});
+</script>
+```
+See it live here: [http://jsbin.com/xubajew](http://jsbin.com/xubajew/edit?html,output)
+
+Of course you can set `maxRotation` to zero if you don't want any rotation at all:
+```html
+<script>
+$(function(){
+  $("#memory-game").memoryGame({
+    maxRotation: 0 
+  });
+});
+</script>
+```
+See it live here: [http://jsbin.com/wuxelo](http://jsbin.com/wuxelo/edit?html,output)
+
+### Card spacing
+
+The widget will always do its best to lay out the cards in the "nicest" possible way while profiting the available space (see the next section for more details). In doing this, it will adjust the **horizontal and vertical space between adjacent cards** as needed.
+
+However, the distance between 
