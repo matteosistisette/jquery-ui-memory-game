@@ -276,6 +276,7 @@ $(function(){
 See it live here: [http://jsbin.com/kefaqo](http://jsbin.com/kefaqo). In this example, the game will tend to have 3 rows of 6 cards if the window is wide and high enough.
 
 You can **disable the preferred aspect ratio** by setting it to **zero**:
+```html
 <script>
 $(function(){
   $("#memory-game").memoryGame({
