@@ -428,7 +428,6 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		},
 		
 		_cardClicked: function(card) {
-			this.nmoves++;
 			var $card=$(card);
 			if ($card.data("currentDirection")!=0 || this.currentCards.length>1) return false;
 			var cardStatus=$card.data("status");
@@ -442,6 +441,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 					return false;
 				break;
 				case 0:
+					this.nmoves++;
 					this._startFlip(card,1);
 					return false;
 				break;
