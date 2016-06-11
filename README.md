@@ -10,14 +10,15 @@ Requirements
 ------------
 
 To be able to use the plugin, place the downloaded `css` and `js` folders in the webroot of your page, and paste this code into the `<head>` of your html:
+```html
+<!-- DEPENDENCIES: jQuery and jQuery-UI -->
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-    <!-- DEPENDENCIES: jQuery and jQuery-UI -->
-    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    
-    <!-- INCLUDE THE PLUGIN (js and css) -->
-    <link rel="stylesheet" href="css/jquery.memory-game.css">
-    <script src="js/jquery.memory-game.js"></script>
+<!-- INCLUDE THE PLUGIN (js and css) -->
+<link rel="stylesheet" href="css/jquery.memory-game.css">
+<script src="js/jquery.memory-game.js"></script>
+```
 
     
 Basic usage
@@ -30,26 +31,27 @@ There are two ways of building a "Memory" card game using this plugin:
 See complete live example here: [http://jsbin.com/kawipa](http://jsbin.com/kawipa/edit?html,output)
 
 HTML markup:
-
-    <div id="memory-game">
-      <a href="http://en.wikipedia.org/wiki/Iguana"><img width="100" height="100" src="example-images/iguana.jpg"></a>
-      <a href="http://en.wikipedia.org/wiki/Panda"><img width="100" height="100" src="example-images/panda.jpg"></a>
-      <a href="http://en.wikipedia.org/wiki/Lemur"><img width="100" height="100" src="example-images/lemur.jpg"></a>
-      <a href="http://en.wikipedia.org/wiki/Penguin"><img width="100" height="100" src="example-images/penguins.jpg"></a>
-      <a href="http://en.wikipedia.org/wiki/Polar_bear"><img width="100" height="100" src="example-images/polarbear.jpg"></a>
-      <a href="http://en.wikipedia.org/wiki/Rabbit"><img width="100" height="100" src="example-images/rabbit.jpg"></a>
-      <a href="http://en.wikipedia.org/wiki/Rhinoceros"><img width="100" height="100" src="example-images/rhino.jpg"></a>
-      <a href="http://en.wikipedia.org/wiki/Common_seal"><img width="100" height="100" src="example-images/seal.jpg"></a>
-      <a href="http://en.wikipedia.org/wiki/Zebra"><img width="100" height="100" src="example-images/zebra.jpg"></a>
-    </div>
+```html
+<div id="memory-game">
+  <a href="http://en.wikipedia.org/wiki/Iguana"><img width="100" height="100" src="example-images/iguana.jpg"></a>
+  <a href="http://en.wikipedia.org/wiki/Panda"><img width="100" height="100" src="example-images/panda.jpg"></a>
+  <a href="http://en.wikipedia.org/wiki/Lemur"><img width="100" height="100" src="example-images/lemur.jpg"></a>
+  <a href="http://en.wikipedia.org/wiki/Penguin"><img width="100" height="100" src="example-images/penguins.jpg"></a>
+  <a href="http://en.wikipedia.org/wiki/Polar_bear"><img width="100" height="100" src="example-images/polarbear.jpg"></a>
+  <a href="http://en.wikipedia.org/wiki/Rabbit"><img width="100" height="100" src="example-images/rabbit.jpg"></a>
+  <a href="http://en.wikipedia.org/wiki/Rhinoceros"><img width="100" height="100" src="example-images/rhino.jpg"></a>
+  <a href="http://en.wikipedia.org/wiki/Common_seal"><img width="100" height="100" src="example-images/seal.jpg"></a>
+  <a href="http://en.wikipedia.org/wiki/Zebra"><img width="100" height="100" src="example-images/zebra.jpg"></a>
+</div>
 
 JavaScript code:
-
-    <script>
-    $(function(){
-        $("#memory-game").memoryGame();
-    });
-    </script>
+```html
+<script>
+$(function(){
+    $("#memory-game").memoryGame();
+});
+</script>
+```
 
 **NOTE:** The size of the card images in pixels must be known (and fixed) when the widget is instantiated. That's why we need the explicit `width` and `height` html attributes, at least on the first image; alternatively, CSS could be used. See below for more details and alternatives.
 
@@ -57,9 +59,8 @@ JavaScript code:
 See complete live example here: [http://jsbin.com/vonaye](http://jsbin.com/vonaye/edit?html,output)
 
 HTML markup (just a container):
-
 ```html
-    <div id="memory-game"></div>
+<div id="memory-game"></div>
 ```
     
 JavaScript code:
