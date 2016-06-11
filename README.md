@@ -293,7 +293,7 @@ By default, the widget automatically attaches its own listener to **the window's
 
 Usually this means you don't have to do worry about anything, and the widget will just adapt its layout automatically every time the window is resized. 
 
-In some cases, however, you may want to take control yourself over the resizing of the widget. This might be the case, for example, if have your own listener(s) attached to the window's (or some other DOM nodes') `onresize` event, which programmatically change the widget's container width. 
+In some cases, however, you may want to take control yourself over the resizing of the widget. This might be the case, for example, if you have your own listener(s) attached to the window's (or some other DOM nodes') `onresize` event, which programmatically change the widget's container width. 
 
 You can prevent the widget from attaching its own listener to the `window.onresize` event by setting the **`autoResize` parameter** to `false`:
 ```html

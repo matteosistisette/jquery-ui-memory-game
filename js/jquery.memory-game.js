@@ -207,6 +207,10 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 					marginLeft: -game.option("cardWidth")/2,
 					marginTop: -game.option("cardHeight")/2
 				});
+				$a.find(".card").css({
+					width: game.option("cardWidth"),
+					height: game.option("cardHeight")
+				});
 				var $wrapper=$(this).find(".memory-card-wrapper");
 				var rotation=(Math.random()*2-1)*game.option("maxRotation");
 				$wrapper.css({
