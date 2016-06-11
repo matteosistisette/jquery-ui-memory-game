@@ -231,10 +231,11 @@ $(function(){
 });
 </script>
 ```
-See it live here: [http://jsbin.com/bixonex](http://jsbin.com/bixonex/edit?html,output)
+See it live here: [http://jsbin.com/bixonex](http://jsbin.com/bixonex)
 
 The card *margin* is by definition half the distance between the edges of two adjacent cards. These parameters determine the minimum and maximum values for it, in pixels.
 
+You can of course set the same values for both parameters to have a fixed distance between adjacent cards:
 ```html
 <script>
 $(function(){
@@ -247,8 +248,40 @@ $(function(){
 });
 </script>
 ```
-See it live here: [http://jsbin.com/canamop](http://jsbin.com/canamop/edit?html,output)
+See it live here: [http://jsbin.com/canamop](http://jsbin.com/canamop)
+
+To see the effects of the values on the layout in the examples above, open them in a big screen and try resizing the browser window to see how the layout adapts.
 
 **NOTE:** the distance between the edges of two adjacent card is computed **as if they were not rotated**, so when deciding the `minCardMargin` you need to take into account the extra space needed to accomodate for the rotation.
 
 
+### Rows:columns Aspect Ratio
+
+By default, the widget will try to keep the ratio of nº of columns vs nº of rows as close to 1:1 as possible. However:
+- it will **never exceed the available width** (determined by the width of the containing HTML node), no matter what. So, the number of cards per row will be reduced as much as needed to fit within the available width;
+- it won't exceed the **height of the browser window** if doing so would leave **any empty wasted space** on the sides.
+
+In other words, the widget will _**prefer**_ a "square" layout, as long as it doesn't exceed the available width, and as long as it doesn't _unnecessarily_ exceed the browser window height while leaving unused empty space. 
+
+You can alter this behavior by means of the **`preferredAspectRatio`** parameter. Its default value is `1` (prefer a square aspect ratio). You can set it to a different value to aim at a different aspect ratio:
+```html
+<script>
+$(function(){
+  $("#memory-game").memoryGame({
+    preferredAspectRatio: 2 // aim at a 2:1 ratio of columns:rows if possible, instead of the default 1:1
+  });
+});
+</script>
+```
+See it live here: [http://jsbin.com/kefaqo](http://jsbin.com/kefaqo). In this example, the game will tend to have 3 rows of 6 cards if the window is wide and high enough.
+
+You can **disable the preferred aspect ratio** by setting it to **zero**:
+<script>
+$(function(){
+  $("#memory-game").memoryGame({
+    preferredAspectRatio: 0 // No preferred aspect ratio. Always put as as many cards per row as the available width allows.
+  });
+});
+</script>
+```
+See it live here: [http://jsbin.com/bekuwe](http://jsbin.com/bekuwe).
