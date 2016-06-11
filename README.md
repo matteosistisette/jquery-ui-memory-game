@@ -310,6 +310,31 @@ Note that in this case you take the responsibility to **call the widget's `resiz
 $("#memory-game").memoryGame("resize");
 ```
 
+Another scenario where you may need this is if you want to change some of the widget parameters (such as the card size or margins) in response to the `onresize` events. Here's an example where we **change the card size** and margins depending on the size of the window:
+```html
+<script>
+$(function(){
+  $("#memory-game").memoryGame({
+  	autoResize:false
+  });
+  myResize();
+  $(window).resize(function(){
+    myResize();
+  });
+});
 
+function myResize(){
+  var cardSize=Math.min($("#memory-game").width(), document.documentElement.clientHeight)/5/1.6;
+  cardSize=Math.max(50,Math.min(200,cardSize));
+  $("#memory-game").memoryGame("option", {
+    cardWidth: cardSize,
+    cardHeight: cardSize,
+    minCardMargin: cardSize*0.2,
+    maxCardMargin: cardSize*0.5
+  });
+}
+</script>
+```
+See it live here: [http://output.jsbin.com/sahesa](http://output.jsbin.com/sahesa)
 
-Another scenario where you may need this is if you want to change some of the widget parameters (such as the card size or margins) in response to the `onresize` events. For example, to make the cards smaller when the window is smaller.
+Note that in this case we **don't** need to call `$("#memory-game").memoryGame("resize");` explicitly in our listener, because we are changing options which affect the layout and this already triggers an internal call to the widget's `resize` method.
