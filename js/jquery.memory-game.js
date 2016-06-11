@@ -33,6 +33,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		innerElement: null,
 		resetPending: null,
 		nmoves: 0,
+		flipAnimationEasing: "linear",
 		
 				
 		options: {
@@ -481,7 +482,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			
 			
 			var $a=$card.find("a");
-			$a.animateScaleX(1, 0, this.options.cardFlipDuration/2, "linear", function(){
+			$a.animateScaleX(1, 0, this.options.cardFlipDuration/2, this.options.flipAnimationEasing, function(){
 				var $card=$(this).parents(".memory-card-container");
 				var game=$card.data("game");
 				var direction=$card.data("currentDirection");
@@ -495,7 +496,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				}
 				
 					
-				$(this).animateScaleX(0, 1, game.option("cardFlipDuration")/2, "linear", function(){
+				$(this).animateScaleX(0, 1, game.option("cardFlipDuration")/2, this.options.flipAnimationEasing, function(){
 					var $card=$(this).parents(".memory-card-container");
 					var game=$card.data("game");
 					var direction=$card.data("currentDirection");

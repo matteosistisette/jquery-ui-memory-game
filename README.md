@@ -141,6 +141,26 @@ Here's an example:
 
 See it live here: [http://jsbin.com/cupefu](http://jsbin.com/cupefu/edit?html,output)
 
+Timing and Animation options
+----------------------------
+There are some useful options to control timings and animation:
+- **`cardFlipDuration`**: (milliseconds) the duration of the card flip animation. Defaults to 300ms.
+- **`flipBackTimeout`**: (milliseconds) the duration of the time interval during which two non-matching cards remain uncovered after the user has flipped them, before they automatically flip back to their covered status.
+
+Example usage:
+```html
+<script>
+$(function(){
+    $("#memory-game").memoryGame({
+    	cardFlipDuration: 700, // slow animation
+    	flipBackTimeout:  200,  // very quick flip-back
+    	flipAnimationEasing: "swing" // see http://jqueryui.com/easing/
+    });
+});
+</script>
+```
+Try it here: 
+
 
 Handling events
 ---------------
