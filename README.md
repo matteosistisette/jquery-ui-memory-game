@@ -24,7 +24,7 @@ Basic usage
 -----------
 There are two ways of building a "Memory" card game using this plugin:
 - Build the list of cards through **HTML markup** (links wrapped around images), and convert it into a Memory game with one simple line of JavaScript
-- or, define the list of cards as a **JavaScript array** and pass it as a parameter to the plugin constructor
+- or, define the list of cards as a **JavaScript array** and pass it as a parameter to the widget constructor
 
 ###Using HTML markup
 See complete live example here: [http://jsbin.com/kawipa](http://jsbin.com/kawipa/edit?html,output)
@@ -51,7 +51,7 @@ JavaScript code:
     });
     </script>
 
-**NOTE:** The size of the card images in pixels must be known (and fixed) when the plugin is instantiated. That's why we need the explicit `width` and `height` html attributes, at least on the first image; alternatively, CSS could be used. See below for more details and alternatives.
+**NOTE:** The size of the card images in pixels must be known (and fixed) when the widget is instantiated. That's why we need the explicit `width` and `height` html attributes, at least on the first image; alternatively, CSS could be used. See below for more details and alternatives.
 
 ###Using a JavaScript array
 See complete live example here: [http://jsbin.com/vonaye](http://jsbin.com/vonaye/edit?html,output)
@@ -143,4 +143,11 @@ You may want to make something happen every time a new pair of matching cards is
     
 This callback function will be called every time a new pair of matching card is disclosed succesfully, and it will be passed one parameter (named `info` in the example above) which is an object containing the following properties:
 
-###Properties of the `info` object (parameter to the `onPairDisclosed` callback)
+- **`card`**: (`Element`) the HTML `&lt;a&gt;` node that wraps the card that has just been disclosed. This is also the preferred way of accessing any information associated to the card (see the section *Binding extra data to the cards* below)
+- **`cardIndex`**: (`Number`) the index of the disclosed pair in the array of cards (one element per pair of cards). `this.options.cards[info.cardIndex]` is the same as `info.cardInfo` described below. Usually you shouldn't need this, unless you are storing information related to the cards in a separate array, which is not recommended (see *Binding extra data to the cards* below) or you are doing weird stuff with the array of cards.
+- **`cardInfo`**: (`Object`) the object containing information about the disclosed card pair. This object has at least two properties, `imageUrl` and `linkUrl`; if you defined the array of cards yourself in JavaScript and passed it to the widget constructor, or if you bound data to the card (see *Binding extra data to the cards* below) it may contains more properties.
+- **`disclosedPairs`**: (`Number`) the number of matching pairs of cards succesfully disclosed until now, including the one that triggered the event
+- **`totalPairs`**: (`Number`) the total number of pairs of cards in the game
+- **`finished`**: (`Boolean`) whether this was the last pair of cards in the game.
+
+Note that, inside the code of your `onPairDisclosed` callback function, **`this`** is the widget instance.
