@@ -1,7 +1,7 @@
 jquery-ui-memory-game
 =====================
 
-Jquery plugin (widget) for creating "memory" card games from a list of links and images.
+Jquery plugin (widget) for creating "memory" card games from a list of links and images. By Matteo Sisti Sette.
 
 See it in action: http://matteosistisette.github.io/jquery-ui-memory-game
 
@@ -293,4 +293,23 @@ By default, the widget automatically attaches its own listener to **the window's
 
 Usually this means you don't have to do worry about anything, and the widget will just adapt its layout automatically every time the window is resized. 
 
-In some cases, however, you may want to take control yourself over the resizing of the widget. This might be the case for example if you want to attach your own listener(s) to the window's (or some other DOM nodes') `onresize` event, and programmatically change the widget's container width. In this scenario, the order 
+In some cases, however, you may want to take control yourself over the resizing of the widget. This might be the case, for example, if have your own listener(s) attached to the window's (or some other DOM nodes') `onresize` event, which programmatically change the widget's container width. 
+
+You can prevent the widget from attaching its own listener to the `window.onresize` event by setting the **`autoResize` parameter** to `false`:
+```html
+<script>
+$(function(){
+  $("#memory-game").memoryGame({
+  	autoResize: false
+  });
+});
+</script>
+```
+Note that in this case you take the responsibility to **call the widget's `resize` method yourself** whenever needed (usually from inside your `onresize` listeners, after you have modified the widget's DOM node width directly or indirectly). You do so by calling:
+```javascript
+$("#memory-game").memoryGame("resize");
+```
+
+
+
+Another scenario where you may need this is if you want to change some of the widget parameters (such as the card size or margins) in response to the `onresize` events. For example, to make the cards smaller when the window is smaller.
