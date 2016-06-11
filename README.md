@@ -116,6 +116,31 @@ JavaScript code:
 
 **NOTE:** if you use this method, you have to specify the card image height and width via the `cardWidth` and `cardHeight` parameters.
 
+Styling
+-------
+
+To change the appearence of the cards, just add your own **CSS stylesheet** to override the default style rules applied by the plugin.
+
+You can place your stylesheet inside a `<style></style>` tag, or in a css file linked via `<link rel="stylesheet">`. Just make sure to put your style **after** the link to `js/jquery.memory-game.css`.
+
+Here's an example:
+```html
+<style>
+.card.back, .card.front {
+  border: solid 4px #272;
+  border-radius: 12px
+}
+.card.back {
+  background: url('example-images/back.jpg');
+} 
+.card.front {
+  border-color: #472a09;
+}
+</style>
+```
+
+See it live here: [http://jsbin.com/cupefu](http://jsbin.com/cupefu/edit?html,output)
+
 
 Handling events
 ---------------
@@ -157,3 +182,6 @@ This callback function will be called every time a new pair of matching card is 
 - **`finished`**: (`Boolean`) whether this was the last pair of cards in the game.
 
 Note that, inside the code of your `onPairDisclosed` callback function, **`this`** is the widget instance.
+
+
+
