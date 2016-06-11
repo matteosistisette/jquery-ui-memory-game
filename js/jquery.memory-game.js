@@ -535,7 +535,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 								cardInfo: game.option("cards")[cardIndex],
 								disclosedPairs: game.ndisclosed,
 								totalPairs: game.option("cards").length,
-								moves: nmoves,
+								moves: game.nmoves,
 								finished: (game.ndisclosed==game.option("cards").length)
 							});
 						},1)
