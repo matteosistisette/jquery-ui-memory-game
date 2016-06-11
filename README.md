@@ -65,7 +65,7 @@ HTML markup (just a container):
 ```
     
 JavaScript code:
-
+```html
     <script>
     $(function(){
       $("#memory-game").memoryGame({
@@ -112,7 +112,8 @@ JavaScript code:
       });
     });
     </script>
-    
+```
+
 **NOTE:** if you use this method, you have to specify the card image height and width via the `cardWidth` and `cardHeight` parameters.
 
 
@@ -122,11 +123,11 @@ Handling events
 See complete live example here: [http://jsbin.com/puxafos](http://jsbin.com/puxafos/edit?html,output)
 
 You may want to make something happen every time a new pair of matching cards is succesfully disclosed. You do so by passing in a callback function as the **`onPairDisclosed`** parameter:
-
+```html
     <script>
     $(function(){
       $("#memory-game").memoryGame({
-        **onPairDisclosed:function(info)** {
+        onPairDisclosed:function(info) {
           if (info.finished) {
             alert("Congratulations! You have finished the game!\n\n"+"Now we'll start over.");
             this.reset(true, true);  // (animated, shuffle cards)
@@ -144,6 +145,7 @@ You may want to make something happen every time a new pair of matching cards is
       });
     });
     </script>
+```
     
 This callback function will be called every time a new pair of matching card is disclosed succesfully, and it will be passed one parameter (named `info` in the example above) which is an object containing the following properties:
 
