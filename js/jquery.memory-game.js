@@ -45,6 +45,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			cardHeight: 'auto',
 			
 			preferredAspectRatio: 1,
+			autoResize: true,
 			
 			cardFlipDuration: 300, 
 			flipBackTimeout: 1000,
@@ -238,7 +239,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			this._init(true);
 			this._build();
 			var game=this;
-			$(window).resize(function() {
+			if (this.options.autoResize) $(this.element).resize(function() {
 				game.resize();
 			});
 		},
