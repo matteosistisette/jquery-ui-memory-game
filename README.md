@@ -343,10 +343,130 @@ Note that in this case we **don't** need to call `$("#memory-game").memoryGame("
 Attaching extra data to the cards
 ---------------------------------
 
-See complete live example here: 
+You can store and retrieve information into and from cards simply by using **HTML5 `data-*` attributes** and **jQuery's `.data()` method**. The easiest way is to attach the data to the `<a>` elements, since those are the ones that are passed to the `onPairDisclosed(info)` callback in the `info.card` property.
 
-You can store and retrieve information into and from cards simply by using **HTML5 `data-*` attributes** and/or **jQuery's `.data()` method**. The easiest way is to attach the data to the `<a>` elements, since those are the ones that are passed to the `onPairDisclosed(info)` callback in the `info.card` property.
+In the following example we prepare some data in the HTML markup and we retrieve it in the `onPairDisclosed` callback to display it when a pair of matching cards disclosed.
 
 HTML code:
+```html
+<div id="memory-game">
+	<a data-name="Iguana" href="http://en.wikipedia.org/wiki/Iguana"><img width="100" height="100" src="example-images/iguana.jpg"></a>
+	<a data-name="Panda" href="http://en.wikipedia.org/wiki/Panda"><img src="example-images/panda.jpg"></a>
+	<a data-name="Lemur" href="http://en.wikipedia.org/wiki/Lemur"><img src="example-images/lemur.jpg"></a>
+	<a data-name="Penguins" href="http://en.wikipedia.org/wiki/Penguin"><img src="example-images/penguins.jpg"></a>
+	<a data-name="Polar Bear" href="http://en.wikipedia.org/wiki/Polar_bear"><img src="example-images/polarbear.jpg"></a>
+	<a data-name="Rabbit" href="http://en.wikipedia.org/wiki/Rabbit"><img src="example-images/rabbit.jpg"></a>
+	<a data-name="Rhinoceros" href="http://en.wikipedia.org/wiki/Rhinoceros"><img src="example-images/rhino.jpg"></a>
+	<a data-name="Seal" href="http://en.wikipedia.org/wiki/Common_seal"><img src="example-images/seal.jpg"></a>
+	<a data-name="Zebra" href="http://en.wikipedia.org/wiki/Zebra"><img src="example-images/zebra.jpg"></a>
+</div>
+```
+JavaScript code:
+```html
+<script>
+$(function(){
+  $("#memory-game").memoryGame({
+    onPairDisclosed: function(info) {
+      alert("Hello, "+$(info.card).data("name")+"!");
+    }
+  });
+});
+</script>
+```
+See it live here: [http://jsbin.com/faricu](http://jsbin.com/faricu/edit?html,output)
 
 
+**If you define the array of cards in JavaScript**, you can also add **arbitrary properties** to the object representing each card. When the `onPairDisclosed` callback is called, the **`cardInfo`** property of the parameter passed to it will be the same object you put into the array, and hence have the same properties.
+
+Let's revisit the example above with this technique.
+
+HTML code:
+```html
+<div id="memory-game">
+```
+JavaScript code:
+```html
+    <script>
+    $(function(){
+      $("#memory-game").memoryGame({
+      	onPairDisclosed: function(info) {
+		  alert("Hello, "+info.cardInfo.name+"!");
+		},
+        cards: [
+          {
+            imageUrl: 'example-images/iguana.jpg',
+            linkUrl: 'http://en.wikipedia.org/wiki/Iguana',
+            name: 'Iguana'
+          },
+          {
+            imageUrl: 'example-images/panda.jpg',
+            linkUrl: 'http://en.wikipedia.org/wiki/Panda',
+            name: 'Panda'
+          },
+          {
+            imageUrl: 'example-images/lemur.jpg',
+            linkUrl: 'http://en.wikipedia.org/wiki/Lemur',
+            name: 'Lemur'
+          },
+          {
+            imageUrl: 'example-images/penguins.jpg',
+            linkUrl: 'http://en.wikipedia.org/wiki/Penguin',
+            name: 'Penguins'
+          },
+          {
+            imageUrl: 'example-images/polarbear.jpg',
+            linkUrl: 'http://en.wikipedia.org/wiki/Polar_bear',
+            name: 'Polar Bear'
+          },
+          {
+            imageUrl: 'example-images/rabbit.jpg',
+            linkUrl: 'http://en.wikipedia.org/wiki/Rabbit',
+            name: 'Rabbit'
+          },
+          {
+            imageUrl: 'example-images/rhino.jpg',
+            linkUrl: 'http://en.wikipedia.org/wiki/Rhinoceros',
+            name: 'Rhinoceros'
+          },
+          {
+            imageUrl: 'example-images/seal.jpg',
+            linkUrl: 'http://en.wikipedia.org/wiki/Common_seal',
+            name: 'Seal'
+          },
+          {
+            imageUrl: 'example-images/zebra.jpg',
+            linkUrl: 'http://en.wikipedia.org/wiki/Zebra',
+            name: 'Zebra'
+          }
+        ],
+        cardWidth: 100,
+        cardHeight: 100
+      });
+    });
+    </script>
+```
+See it live here: [http://jsbin.com/kojoneq/edit?html,output](http://jsbin.com/kojoneq/edit?html,output)
+
+
+However, even if you do create the `cards` array in JavaScript, it is better to put all the extra data fields inside an object property called `data` of your card object, like this:
+```javascript
+        cards: [
+          {
+            imageUrl: 'example-images/iguana.jpg',
+            linkUrl: 'http://en.wikipedia.org/wiki/Iguana',
+            data: {
+            	name: 'Iguana'
+            }
+          },
+          //...
+          //...
+        ],
+        //...
+```
+All the fields inside the `data` property of your card objects will be automatically copied using jQuery's `data()` method into data fields associated to the corresponding `<a>` nodes. So, you will be able to access them in the same way as if they had been created using `data-*` attributes in HTML:
+```javascript
+        onPairDisclosed: function(info) {
+		  alert("Hello, "+$(info.card).data("name")+"!");
+		},
+```
+See the full live example here: [http://jsbin.com/vimidu](http://jsbin.com/vimidu/edit?html,output)
