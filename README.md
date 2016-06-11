@@ -140,3 +140,7 @@ You may want to make something happen every time a new pair of matching cards is
       });
     });
     </script>
+    
+This callback function will be called every time a new pair of matching card is disclosed succesfully, and it will be passed one parameter (named `info` in the example above) which is an object containing the following properties:
+
+###Properties of the `info` object (parameter to the `onPairDisclosed` callback)
