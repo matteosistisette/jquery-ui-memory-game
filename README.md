@@ -58,7 +58,9 @@ See complete live example here: [http://jsbin.com/vonaye](http://jsbin.com/vonay
 
 HTML markup (just a container):
 
+```html
     <div id="memory-game"></div>
+```
     
 JavaScript code:
 
