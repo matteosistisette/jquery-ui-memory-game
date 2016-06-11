@@ -463,7 +463,7 @@ However, even if you do create the `cards` array in JavaScript, it is better to 
         ],
         //...
 ```
-All the fields inside the `data` property of your card objects will be automatically copied using jQuery's `data()` method into data fields associated to the corresponding `<a>` nodes. So, you will be able to access them in the same way as if they had been created using `data-*` attributes in HTML:
+All the fields inside the `data` property of your card objects will be automatically copied using jQuery's `data()` method into data fields associated to the corresponding `<a>` nodes. This way you will be able to access them again using jQuery's `.data()` method the same way as we had done before:
 ```javascript
         onPairDisclosed: function(info) {
 		  alert("Hello, "+$(info.card).data("name")+"!");
