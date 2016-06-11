@@ -382,7 +382,7 @@ Let's revisit the example above with this technique.
 
 HTML code:
 ```html
-<div id="memory-game">
+<div id="memory-game"></div>
 ```
 JavaScript code:
 ```html
