@@ -154,7 +154,7 @@ You may want to make something happen every time a new pair of matching cards is
       $("#memory-game").memoryGame({
         onPairDisclosed:function(info) {
           if (info.finished) {
-            alert("Congratulations! You have finished the game!\n\n"+"Now we'll start over.");
+            alert("Congratulations! You have finished the game in "+info.moves+" moves!\n\n"+"Now we'll start over.");
             this.reset(true, true);  // (animated, shuffle cards)
           }
           else {
