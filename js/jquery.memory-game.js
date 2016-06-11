@@ -340,7 +340,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 						first=false;
 					}
 					var imageUrl=$img.attr("src");
-					
+					console.log("Retrieving data from card: ", $(this).data());
 					var cardObject={
 						linkUrl: linkUrl,
 						imageUrl: imageUrl,
@@ -399,6 +399,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				$container.data("instance", i);
 				$container.data("game", this);
 				$container.data("currentDirection", 0);
+				console.log("Adding data to card: ", cardInfo.data);
 				if (cardInfo.data!==undefined) $a.data(cardInfo.data);
 				$wrapper.append($a);
 				var $img=$('<img src="'+this.options.imagesPath+cardInfo.imageUrl+'" class="card front">');
