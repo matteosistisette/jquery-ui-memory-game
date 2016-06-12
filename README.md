@@ -212,6 +212,7 @@ You can restart the game by calling the **`reset`** method:
 ```javascript
 var animated=true, shuffle=true, rebuild=false;
 $("#memoryGame").memoryGame("reset", animated, shuffle, rebuild);
+```
 
 The `reset` method takes three boolean arguments:
 - **`animated`**: whether to flip the uncovered cards with animation.
