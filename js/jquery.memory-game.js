@@ -50,6 +50,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			
 			cardFlipDuration: 300, 
 			flipBackTimeout: 1000,
+			flipAnimationEasing: "linear",
 			
 			minCardMargin: 10,
 			maxCardMargin: 50,
