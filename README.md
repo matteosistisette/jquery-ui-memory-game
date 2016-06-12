@@ -146,15 +146,16 @@ Timing and Animation options
 There are some useful options to control timings and animation:
 - **`cardFlipDuration`**: (milliseconds) the duration of the card flip animation. Defaults to 300ms.
 - **`flipBackTimeout`**: (milliseconds) the duration of the time interval during which two non-matching cards remain uncovered after the user has flipped them, before they automatically flip back to their covered status.
+- **`flipAnimationEasing`**: (string) the kind of easing used for the card flip animation. Supported values are "linear" (which maps to "linear"), and "Quad", "Cubic", "Quart", etc., which map to "easeInOutQuad", "easeInOutCubic", "easeInOutQuart", etc., as defined at [http://jqueryui.com/easing/](http://jqueryui.com/easing/). The default is "linear"
 
 Example usage:
 ```html
 <script>
 $(function(){
     $("#memory-game").memoryGame({
-    	cardFlipDuration: 700, // slow animation
-    	flipBackTimeout:  200,  // very quick flip-back
-    	flipAnimationEasing: "swing" // see http://jqueryui.com/easing/
+    	cardFlipDuration: 700, // slower animation
+    	flipBackTimeout:  200,  // almost immediate flip-back
+        flipAnimationEasing: "Quad"  // "easeInOutQuad" easing, see http://jqueryui.com/easing/
     });
 });
 </script>
