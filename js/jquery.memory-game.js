@@ -33,8 +33,6 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		innerElement: null,
 		resetPending: null,
 		nmoves: 0,
-		flipAnimationEasing: "linear",
-		
 				
 		options: {
 			
