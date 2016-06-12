@@ -220,6 +220,10 @@ The `reset` method takes three boolean arguments:
 - **`rebuild`**: whether to completely rebuild the widget from scratch. If set to true, it will be equivalent to destroying and re-creating the widget. You shouldn't ever need this unless you have manipulated the `options.cards` array in-place.
 
 
+Typically you may want to call `reset` (probably with animation and shuffling) when the user finishes the game, which you can do from inside the `onPairDisclosed` callback if the `finished` property is true.
+
+See an example here:
+
 
 
 
