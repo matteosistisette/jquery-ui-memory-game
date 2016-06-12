@@ -25,7 +25,7 @@ Basic usage
 -----------
 There are two ways of building a "Memory" card game using this plugin:
 - Build the list of cards through **HTML markup** (links wrapped around images), and convert it into a Memory game with one simple line of JavaScript
-- or, define the list of cards as a **JavaScript array** and pass it as a parameter to the widget constructor
+- OR define the list of cards as a **JavaScript array** and pass it as a parameter to the widget constructor
 
 ###Using HTML markup
 See complete live example here: [http://jsbin.com/kawipa](http://jsbin.com/kawipa/edit?html,output)
@@ -220,9 +220,7 @@ The `reset` method takes three boolean arguments:
 - **`rebuild`**: whether to completely rebuild the widget from scratch. If set to true, it will be equivalent to destroying and re-creating the widget. You shouldn't ever need this unless you have manipulated the `options.cards` array in-place.
 
 
-Typically you may want to call `reset` (probably with animation and shuffling) when the user finishes the game, which you can do from inside the `onPairDisclosed` callback if the `finished` property is true.
-
-See an example here:
+Try it here: [http://jsbin.com/duzetu](http://jsbin.com/duzetu/edit?html,output)
 
 
 
