@@ -205,6 +205,22 @@ This callback function will be called every time a new pair of matching card is 
 
 Note that, inside the code of your `onPairDisclosed` callback function, **`this`** is the widget instance.
 
+Restarting the game
+-------------------
+
+You can restart the game by calling the **`reset`** method:
+```javascript
+var animated=true, shuffle=true, rebuild=false;
+$("#memoryGame").memoryGame("reset", animated, shuffle, rebuild);
+
+The `reset` method takes three boolean arguments:
+- **`animated`**: whether to flip the uncovered cards with animation.
+- **`shuffle`**: whether to shuffle the cards, that is, reorder them. 
+- **`rebuild`**: whether to completely rebuild the widget from scratch. If set to true, it will be equivalent to destroying and re-creating the widget. You shouldn't ever need this unless you have manipulated the `options.cards` array in-place.
+
+
+
+
 
 Controlling card layout
 -----------------------
