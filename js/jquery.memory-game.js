@@ -496,7 +496,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				}
 				
 					
-				$(this).animateScaleX(0, 1, game.option("cardFlipDuration")/2, this.options.flipAnimationEasing, function(){
+				$(this).animateScaleX(0, 1, game.option("cardFlipDuration")/2, game.options.flipAnimationEasing, function(){
 					var $card=$(this).parents(".memory-card-container");
 					var game=$card.data("game");
 					var direction=$card.data("currentDirection");
