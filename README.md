@@ -160,7 +160,7 @@ $(function(){
 });
 </script>
 ```
-Try it here: 
+Try it here: [http://jsbin.com/yujuka](http://jsbin.com/yujuka/edit?html,output)
 
 
 Handling events
