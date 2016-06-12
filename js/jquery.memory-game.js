@@ -88,27 +88,45 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			}
 		},
 		
-		reorder:function(keepRotations) {
+		reorder:function(keepRotations, useOptions) {
 			if (keepRotations===undefined) keepRotations=true;
+			if (this.options.order===null || this.options.order.length!=2*this.options.cards.length) useOptions=false;
+			if (useOptions) keepRotations=false;
+			
 			var cards=[];
 			var rotations=[];
 			$(this.innerElement).children().each(function(){
 				$(this).detach();
-				cards.push($(this));
-				rotations.push($(this).find(".memory-card-wrapper").data("rotation"));
-			});
-			var i=0;
-			while (cards.length>0) {
-				var n=Math.min(Math.floor(Math.random()*cards.length),cards.length-1);
-				var $card=cards[n];
-				cards.splice(n,1);
-				if (keepRotations) {
-					$card.find(".memory-card-wrapper").data("rotation", rotations[i]).css({
-						transform: 'rotate('+rotations[i]+'deg)'
-					});
+				if (useOptions) {
+					var idx=$(this).data("cardIndex");
+					if (cards[idx]===undefined) cards[idx]=[];
+					cards[idx].push($(this));
 				}
-				$(this.innerElement).append($card);
-				i++;
+				else {
+					cards.push($(this));
+					rotations.push($(this).find(".memory-card-wrapper").data("rotation"));
+				}
+			});
+			if (useOptions) {
+				for (var i=0; i<this.options.order.length; i++) {
+					var $card=cards[this.options.order[i]].pop();
+					$(this.innerElement).append($card);
+				}
+			}
+			else {
+				var i=0;
+				while (cards.length>0) {
+					var n=Math.min(Math.floor(Math.random()*cards.length),cards.length-1);
+					var $card=cards[n];
+					cards.splice(n,1);
+					if (keepRotations) {
+						$card.find(".memory-card-wrapper").data("rotation", rotations[i]).css({
+							transform: 'rotate('+rotations[i]+'deg)'
+						});
+					}
+					$(this.innerElement).append($card);
+					i++;
+				}
 			}
 		},
 		
@@ -276,9 +294,9 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				if (this.options.cards.length==0 && $(this.element).find("a").length>0) {
 					this._createCardsArrayFromMarkup();
 				}
-				for (var i=0; i<this.options.cards.length; i++) {
-					if (this.options.alreadyDisclosed[i]) this.disclosed[i]=true;
-					this.ndisclosed++;
+				this.ndisclosed=this.options.alreadyDisclosed.length;
+				for (var i=0; i<this.options.alreadyDisclosed.length; i++) {
+					this.disclosed[this.options.alreadyDisclosed[i]]=true;
 				}
 			}
 		},
@@ -308,7 +326,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			for (var i=0; i<cards.length; i++) {
 				this._createCard(i, cards[i]);
 			}
-			this.reorder();
+			this.reorder(true, true);
 			this.resize();
 			this._arrangeCards(true);
 			this.ready=true;
@@ -415,6 +433,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				});
 				
 				$(this.innerElement).append($container);
+				if (this.disclosed[cardIndex]) this.enableCardLink($container);
 			}
 		},
 		
