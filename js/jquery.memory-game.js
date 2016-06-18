@@ -339,6 +339,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			var first=true;
 			$(this.element).find("a").each(function(){
 				var linkUrl=$(this).attr("href");
+				var linkTitle=$(this).attr("title");
 				var $img=$(this).find("img");
 				if ($img.length>0) {
 					if (first) {
@@ -360,8 +361,9 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 					var imageUrl=$img.attr("src");
 					var cardObject={
 						linkUrl: linkUrl,
+						linkTitle: linkTitle,
 						imageUrl: imageUrl,
-						data: $(this).data()
+						data: $(this).data(),
 					};
 					cards.push(cardObject);
 				}
@@ -412,6 +414,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 				
 				var $a=$('<a href="" target="_blank"></a>');
 				$container.data("linkUrl", href);
+				$container.data("linkTitle", cardInfo.linkTitle);
 				$container.data("cardIndex", cardIndex);
 				$container.data("instance", i);
 				$container.data("game", this);
@@ -593,6 +596,8 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		enableCardLink: function($card) {
 			var $a=$card.find("a");
 			$a.attr("href", $card.data("linkUrl"));
+			var linkTitle=$card.data("linkTitle");
+			if (linkTitle!==undefined && linkTitle!==null) $a.attr("title", linkTitle);
 		},
 		popCurrentCard: function($card) {
 			var nclosed=0;
