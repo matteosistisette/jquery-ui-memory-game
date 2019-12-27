@@ -27,7 +27,8 @@ There are two ways of building a "Memory" card game using this plugin:
 - Build the list of cards through **HTML markup** (links wrapped around images), and convert it into a Memory game with one simple line of JavaScript
 - OR define the list of cards as a **JavaScript array** and pass it as a parameter to the widget constructor
 
-###Using HTML markup
+### Using HTML markup
+
 See complete live example here: [http://jsbin.com/kawipa](http://jsbin.com/kawipa/edit?html,output)
 
 HTML markup:
@@ -56,7 +57,8 @@ $(function(){
 
 **NOTE:** The size of the card images in pixels must be known (and fixed) when the widget is instantiated. That's why we need the explicit `width` and `height` html attributes, at least on the first image; alternatively, CSS could be used. See below for more details and alternatives.
 
-###Using a JavaScript array
+### Using a JavaScript array
+
 See complete live example here: [http://jsbin.com/vonaye](http://jsbin.com/vonaye/edit?html,output)
 
 HTML markup (just a container):
