@@ -33,6 +33,9 @@
 	left: 0;
 	padding: 0;
 }
+.memory-card-container, .memory-card-container * {	
+	will-change: transform;
+}
 .card {
 	border-radius: 6px;
 	border-width: 2px;
