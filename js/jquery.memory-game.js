@@ -53,6 +53,8 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 			minCardMargin: 10,
 			maxCardMargin: 50,
 			
+			subtractTopOffset: false,
+			
 			maxRotation: 10,
 			
 			order: null,
@@ -213,7 +215,7 @@ http://gitgub.com/matteosistisette/jquery-ui-memorygame
 		
 		
 		_getMaxHeight: function() {
-			return document.documentElement.clientHeight;
+			return document.documentElement.clientHeight-(this.options.subtractTopOffset?$(this.innerElement).offset().top:0);
 		},
 		
 		
